@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <a href="/" class="logo"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="41"
+            viewBox="0 0 35 41"
+            fill="none"
+          >
+            <path
+              d="M35 0C35 8.78571 35 17.7806 35 26.9847C29.5833 26.9847 24.1667 27.1939 18.75 26.9847C16.25 26.9847 15 27.6122 13.9583 29.9133C12.2917 33.6786 10.4167 37.4439 7.91667 41C7.91667 36.6071 7.91667 32.0051 7.91667 27.1939C5.20833 27.1939 2.70833 27.1939 0 27.1939C0 18.199 0 8.9949 0 0C11.875 0 23.3333 0 35 0Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+
+        <ul class="nav-items">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="#">About</a></li>
+          <li class="nav-item"><a href="#">More</a></li>
+        </ul>
+
+        <div class="hamburger-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <div id="dynamic-content"></div>
+
+    <script src="dynamic-page-two.js"></script>
+    <script>
+      document
+        .querySelector(".hamburger-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-items").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>
