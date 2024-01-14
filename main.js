@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const categories = {};
 
       data.forEach((card) => {
-        if (!card.categoria) {
-          return;
-        }
+        //if (!card.categoria) {
+          //return;
+        //}
 
         if (!card.imagenes) {
            return;
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
           index % 2 === 0 ? "category-two.html" : "category-one.html";
         populateCategory(
           categoryId,
-          categories[categoryId].slice(0, 10), //me ha dicho Lourdes que podría filtrarlo por categoría o algo así mejor que solo cortar
+          categories[categoryId].slice(0, 40), //me ha dicho Lourdes que podría filtrarlo por categoría o algo así mejor que solo cortar
           targetPage,
         );
       });
@@ -106,6 +106,21 @@ function toggleProfile() {
     profile.style.display = "none";
   }
 }
+function toggleChat() {
+  var chatWindow = document.getElementById("chatWindow");
+  var messagesContainer = document.getElementById("messages");
+
+  if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+      chatWindow.style.display = "block";
+
+      if (isFirstTime) {
+          messagesContainer.innerHTML += "<div>Hola Lourdes! Soy tu chat de la ESD, hazme alguna pregunta</div>";
+          isFirstTime = false;
+      }
+  } else {
+      chatWindow.style.display = "none";
+  }
+}
 
 function sendMessage() {
     var userInput = document.getElementById("userInput").value.toLowerCase();
@@ -121,7 +136,7 @@ function sendMessage() {
 
             setTimeout(function() {
                 chatWindow.style.display = "none";
-            }, 1000);
+            }, 3000);
 
             document.getElementById("userInput").value = "";
             return; // para salir de la función
@@ -142,19 +157,4 @@ function sendMessage() {
         messagesContainer.innerHTML += "<div>Bot: " + botResponse + "</div>";
         document.getElementById("userInput").value = "";
     }
-}
-function toggleChat() {
-  var chatWindow = document.getElementById("chatWindow");
-  var messagesContainer = document.getElementById("messages");
-
-  if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
-      chatWindow.style.display = "block";
-
-      if (isFirstTime) {
-          messagesContainer.innerHTML += "<div>Hola Lourdes! Soy tu chat de la ESD, hazme alguna pregunta</div>";
-          isFirstTime = false;
-      }
-  } else {
-      chatWindow.style.display = "none";
-  }
 }
